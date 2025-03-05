@@ -21,13 +21,6 @@ export const testDbConnection = async (): Promise<void> => {
 // Function to sync models with the database
 export const syncDb = async (force = false): Promise<void> => {
   try {
-    if (process.env.NODE_ENV === "production") {
-      logger.info(
-        "Database sync skipped in production. Use migrations instead."
-      );
-      return;
-    }
-
     await sequelize.sync({ force });
     logger.info("Database synced" + (force ? " (tables recreated)" : ""));
   } catch (error) {
