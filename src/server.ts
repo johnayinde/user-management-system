@@ -12,7 +12,7 @@ const startServer = async () => {
   try {
     await testDbConnection();
 
-    await syncDb(false);
+    await syncDb(true);
 
     app.listen(PORT, () => {
       logger.info(
