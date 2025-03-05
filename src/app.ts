@@ -20,6 +20,13 @@ app.use(morganMiddleware);
 logger.info("Server initialized");
 
 // Routes
+app.get("/", (req, res) => {
+  return res.status(200).json({
+    message: "Welcome to User Management System API",
+    documentation: "See README.md for API documentation",
+  });
+});
+
 app.use("/users", userRoutes);
 app.use("/addresses", addressRoutes);
 app.use("/posts", postRoutes);
